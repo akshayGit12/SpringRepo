@@ -25,7 +25,7 @@ public class PatientDAOImpl implements PatientDAO {
 			+ "JOIN hospital h ON p.hospital_id = h.hospital_id\r\n"
 			+ "WHERE h.location IN (?, ?)\r\n"
 			+ "ORDER BY LOCATION";*/
-	private static final String GET_HSP_QUERY="SELECT * FROM HOSPITAL WHERE LOCATION IN(?,?)";
+	private static final String GET_HSP_QUERY="SELECT HOSPITAL_ID, HOSPITAL_NAME, CONTACT_NUMBER, TOTAL_BEDS, AVAILABLE_BEDS, LOCATION FROM HOSPITAL WHERE LOCATION IN(?,?) order by location";
 
 	@Override
 	public List<Patient> getPatientByLocation(String location1, String location2) throws Exception {
@@ -42,15 +42,23 @@ public class PatientDAOImpl implements PatientDAO {
 			ps.setString(2, location2);
 			// execute the select SQL Query 
 			try(ResultSet rs=ps.executeQuery()){
-				// process the ResultSet object to List<Employee> object
+				// process the ResultSet object to List<Patient> object
 				while(rs.next()) {
 					// copy each record into model class object
 					Patient patient=new Patient();
-					patient.setPatient_id(rs.getInt(1));
-					patient.setPatient_name(rs.getString(2));
-					patient.setAge(rs.getInt(3));
-					patient.setGender(rs.getString(4));
-					patient.setDisease(rs.getNString(5));
+					
+					patient.setHospital_id(rs.getInt(1));
+					patient.setHospital_name(rs.getString(2));
+					patient.setContact_number(rs.getInt(3));
+					patient.setTotal_beds(rs.getInt(4));
+					patient.setAvailable_beds(rs.getInt(5));
+					patient.setLocation(rs.getString(6));
+					
+					/*patient.setPatient_id(rs.getInt(4));
+					patient.setPatient_name(rs.getString(5));
+					patient.setAge(rs.getInt(6));
+					patient.setGender(rs.getString(7));
+					patient.setDisease(rs.getNString(8));*/
 					// add Employee class object to List collection
 					list.add(patient);
 				}//while

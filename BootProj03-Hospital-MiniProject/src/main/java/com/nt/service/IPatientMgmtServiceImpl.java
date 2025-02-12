@@ -20,13 +20,6 @@ public class IPatientMgmtServiceImpl implements IPatientMgmtService{
 		location2=location2.toUpperCase();
 		//use DAO
 		List<Patient> list=hspDAO.getPatientByLocation(location1, location2);
-		/*// calculate gross salary and net salary
-		list.forEach(emp->{
-			emp.setGrossSalary(emp.getSalary()+(emp.getSalary()*0.4));
-			emp.setNetSalary(emp.getGrossSalary()-(emp.getGrossSalary()*0.15));
-		});*/
-		
 		return list;
-	}
-
-}
+	}//method
+}//class

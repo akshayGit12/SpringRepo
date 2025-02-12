@@ -33,7 +33,7 @@ public class BootProj03MiniProjectApplication {
 		try {
 			List<Patient> list=controller.getPatientByLocation(location1, location2);
 			// display the results
-			System.out.println("EMployees belonging to "+ location1+"  "+location2+"are");
+			System.out.println("Hospitals belonging to "+ location1+"  "+location2+" are ");
 			list.forEach(hsp-> {
 				System.out.println(hsp);
 			});
