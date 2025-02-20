@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "per.info.name",
+    "type": "java.lang.String",
+    "description": "A description for 'per.info.name'"
+  },
+  {
+    "name": "per.info.addrs",
+    "type": "java.lang.String",
+    "description": "A description for 'per.info.addrs'"
+  },
+  {
+    "name": "per.info.salary",
+    "type": "java.lang.String",
+    "description": "A description for 'per.info.salary'"
+  },
+  {
+    "name": "per.info.mobileno",
+    "type": "java.lang.String",
+    "description": "A description for 'per.info.mobileno'"
+  },
+  {
+    "name": "per.info.age",
+    "type": "java.lang.String",
+    "description": "A description for 'per.info.age'"
+  }
+]}
